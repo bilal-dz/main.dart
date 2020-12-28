@@ -1,0 +1,24 @@
+void main() {
+  List<String> componants = [];
+  List <dynamic> laptop = [];
+
+  laptop.add(Laptop<Kingston>(Kingston()));
+  laptop.add(Laptop<Sony>(Sony()));
+  laptop.forEach((i) {
+    componants.add('${i.getoption().runtimeType} ${i.getoption().plus()}');
+  });
+
+  print('Monted componants:$componants');
+}
+
+class Convention{ String plus(){}}
+
+class Sony implements Convention {  String plus() => '(WIFI )';}
+
+class Kingston implements Convention {  String plus() => '(Ram 4Go)';}
+
+class Laptop<T> {
+  final T p;
+  Laptop(T this.p) { print(' info : $p is monted    OK');  }
+  T getoption() {  return p;  }
+}
